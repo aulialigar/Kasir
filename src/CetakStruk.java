@@ -11,13 +11,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Smktelkomm
  */
-public class PembelianBarang extends javax.swing.JFrame {
+public class CetakStruk extends javax.swing.JFrame {
 
     /**
-     * Creates new form PembelianBarang
+     * Creates new form CetakStruk
      */
-    public PembelianBarang() {
+    public CetakStruk(String nama, int jumlah, int harga) {
         initComponents();
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(new String[]{nama+jumlah+harga});
     }
 
     /**
@@ -32,83 +35,63 @@ public class PembelianBarang extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        HT = new javax.swing.JTextField();
+        Bayar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        HB = new javax.swing.JTextField();
-        NB = new javax.swing.JTextField();
-        JB = new javax.swing.JTextField();
-        btnTambah = new javax.swing.JButton();
-        btnOK = new javax.swing.JButton();
+        Kembali = new javax.swing.JTextField();
+        CS = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnMember = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("DFPOP1-W9", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pembelian Barang");
+        jLabel1.setText("Harga Total");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(250, 140, 230, 20);
+        jLabel1.setBounds(20, 140, 110, 30);
 
         jLabel2.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nama Barang");
+        jLabel2.setText("List Barang");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 210, 120, 10);
+        jLabel2.setBounds(20, 200, 100, 14);
 
         jLabel3.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Jumlah Barang");
+        jLabel3.setText("Bayar");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 260, 120, 20);
+        jLabel3.setBounds(420, 210, 70, 14);
+
+        HT.setFont(new java.awt.Font("DFPOP1-W9", 0, 24)); // NOI18N
+        getContentPane().add(HT);
+        HT.setBounds(120, 130, 470, 50);
+        getContentPane().add(Bayar);
+        Bayar.setBounds(420, 230, 170, 30);
 
         jLabel4.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Harga Barang");
+        jLabel4.setText("Kembali");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 310, 120, 20);
+        jLabel4.setBounds(420, 280, 100, 14);
+        getContentPane().add(Kembali);
+        Kembali.setBounds(420, 300, 170, 30);
 
-        HB.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
-        getContentPane().add(HB);
-        HB.setBounds(20, 330, 190, 30);
-
-        NB.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
-        getContentPane().add(NB);
-        NB.setBounds(20, 230, 190, 30);
-
-        JB.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
-        getContentPane().add(JB);
-        JB.setBounds(20, 280, 190, 30);
-
-        btnTambah.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
-        btnTambah.setForeground(new java.awt.Color(0, 0, 102));
-        btnTambah.setText("Tambah Item");
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnTambah);
-        btnTambah.setBounds(20, 380, 190, 30);
-
-        btnOK.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
-        btnOK.setForeground(new java.awt.Color(0, 0, 102));
-        btnOK.setText("OK");
-        btnOK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOKActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnOK);
-        btnOK.setBounds(80, 420, 80, 23);
+        CS.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
+        CS.setForeground(new java.awt.Color(102, 102, 102));
+        CS.setText("Cetak Struk");
+        getContentPane().add(CS);
+        CS.setBounds(420, 370, 170, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nama Barang", "Jumlah Barang", "Harga"
+                "Nama Barang", "Jumlah", "Harga"
             }
         ) {
             Class[] types = new Class [] {
@@ -127,41 +110,37 @@ public class PembelianBarang extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(230, 210, 450, 240);
+        jScrollPane2.setBounds(20, 230, 390, 170);
+
+        btnMember.setFont(new java.awt.Font("DFPOP1-W9", 0, 14)); // NOI18N
+        btnMember.setForeground(new java.awt.Color(0, 0, 102));
+        btnMember.setText("Member");
+        btnMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMemberActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMember);
+        btnMember.setBounds(420, 340, 170, 20);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pembayaran.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 700, 470);
+        jLabel6.setBounds(0, -20, 710, 500);
 
-        setBounds(0, 0, 715, 508);
+        setBounds(0, 0, 714, 513);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+    private void btnMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMemberActionPerformed
         // TODO add your handling code here:
-        String nama = NB.getText();
-        int jumlah = Integer.parseInt(HB.getText());
-        int harga = Integer.parseInt(JB.getText());
-        
-        new CetakStruk(nama, harga, jumlah).setVisible(true);
-    }//GEN-LAST:event_btnOKActionPerformed
-
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        // TODO add your handling code here:
-        String nama = NB.getText();
-        int jumlah = Integer.parseInt(JB.getText());
-        int harga = Integer.parseInt(HB.getText());
-        int total = jumlah*harga;
-       
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.addRow(new String[]{NB.getText(),
-            JB.getText(),HB.getText()+" X "+jumlah+" = "+total});
-        
-        NB.setText("");
-        JB.setText("");
-        HB.setText("");
-    }//GEN-LAST:event_btnTambahActionPerformed
+        int total = Integer.parseInt(HT.getText());
+    }//GEN-LAST:event_btnMemberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,30 +159,30 @@ public class PembelianBarang extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PembelianBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CetakStruk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PembelianBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CetakStruk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PembelianBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CetakStruk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PembelianBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CetakStruk.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PembelianBarang().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField HB;
-    private javax.swing.JTextField JB;
-    private javax.swing.JTextField NB;
-    private javax.swing.JButton btnOK;
-    private javax.swing.JButton btnTambah;
+    private javax.swing.JTextField Bayar;
+    private javax.swing.JButton CS;
+    private javax.swing.JTextField HT;
+    private javax.swing.JTextField Kembali;
+    private javax.swing.JButton btnMember;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
